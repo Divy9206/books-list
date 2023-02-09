@@ -1,0 +1,33 @@
+<div class="flex-container">
+    <app-search (searchTextChanged)="onSerchTextEntered($event)"></app-search>
+
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+        <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let item of data | paginate: { itemsPerPage: tableSize,
+        currentPage: page, totalItems: count}; let i = index">
+            <mat-card class="card" *ngIf="searchText === '' || item.volumeInfo.title.toLowerCase().includes(searchText)">
+                <mat-card-header>
+                    <mat-card-title>{{item.volumeInfo.title}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <strong>Authors: </strong><span>{{item.volumeInfo.authors[0]}}</span>
+                </mat-card-content>
+                <mat-card-content>
+                    <strong>Publisher: </strong><span>{{item.volumeInfo.publisher}}</span>
+                </mat-card-content>
+                <mat-card-content>
+                    <strong>Published Date: </strong><span>{{item.volumeInfo.publishedDate}}</span>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    <div fxLayout="row wrap" id="styled-select">
+        <pagination-controls previousLabel="Previous" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
+
+        <select class="select" (change)="onTableSizeChange($event)">
+            <option *ngFor="let size of tableSizes">
+                {{size}}
+            </option>
+        </select>
+    </div>
+</div>
