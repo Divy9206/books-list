@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { BooksComponent } from './components/books/books.component';
 
 const routes: Routes = [
-  {path: '', component: BooksComponent}
+  { path: '', component: BooksComponent },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

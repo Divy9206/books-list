@@ -1,10 +1,10 @@
-<div class="flex-container">
+<div class="flex-container" *ngIf="masterBookList">
     <app-search (searchTextChanged)="onSerchTextEntered($event)"></app-search>
 
     <div fxLayout="row wrap" fxLayoutGap="16px grid">
-        <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let item of data | paginate: { itemsPerPage: tableSize,
+        <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let item of filteredBookList | paginate: { itemsPerPage: tableSize,
         currentPage: page, totalItems: count}; let i = index">
-            <mat-card class="card" *ngIf="searchText === '' || item.volumeInfo.title.toLowerCase().includes(searchText)">
+            <mat-card class="card">
                 <mat-card-header>
                     <mat-card-title>{{item.volumeInfo.title}}</mat-card-title>
                 </mat-card-header>
