@@ -1,3 +1,16 @@
+=========================================================================================================================
+To run this application
+
+	- Execute command at root directory level 
+		ex: c:/../../book-list> "npm install"
+	
+	Above command will restore all the packages used in this project.
+
+	- Now, run the application 
+		ng serve --open
+
+=========================================================================================================================
+
 Steps to Set up the application.
 
 Step1: Angular version, Node Version used for building this application
@@ -27,7 +40,4 @@ npm i @angular/material
 npm i @angular/flex-layout
 npm install ngx-spinner
 npm i ngx-pagination
-
-Step3: Run the application
-
-ng serve --open
+=========================================================================================================================
